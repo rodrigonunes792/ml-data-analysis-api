@@ -1,9 +1,6 @@
 import pandas as pd
 import numpy as np
 from typing import Dict, Any, List
-from io import StringIO
-import json
-
 class EDAService:
     @staticmethod
     def analyze_dataset(df: pd.DataFrame) -> Dict[str, Any]:
@@ -56,7 +53,15 @@ class EDAService:
 
     @staticmethod
     def generate_histogram(df: pd.DataFrame, column: str) -> Dict[str, Any]:
-        """Generate data for a histogram"""
+        """Generate data for a histogra
+                Generate histogram data for numerical columns
+
+                                Args:
+                                            df: Input pandas DataFrame
+                                                        column: Column name to analyze
+
+                                                                            Returns:
+                                                                                        Dictionary with histogram type, column name, bins and counts"""
         if column not in df.columns:
             raise ValueError(f"Column {column} not found")
         
