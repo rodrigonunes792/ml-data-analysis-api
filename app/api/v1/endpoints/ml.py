@@ -8,6 +8,16 @@ ml_service = MLService()
 
 @router.post("/{dataset_id}/train", response_model=Dict[str, Any])
 async def train_model(dataset_id: str, request: ModelTrainRequest):
+        """
+            Train a machine learning model on the specified dataset
+
+                    Args:
+                            dataset_id: ID of the dataset to train on
+                                    request: ModelTrainRequest containing model type and parameters
+
+                                                Returns:
+                                                        ModelMetrics with training results and model performance
+                                                            """
     if dataset_id not in datasets:
         raise HTTPException(status_code=404, detail="Dataset not found")
     
