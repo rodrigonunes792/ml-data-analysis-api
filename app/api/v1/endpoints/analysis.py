@@ -13,6 +13,15 @@ datasets = {}
 
 @router.post("/upload")
 async def upload_dataset(file: UploadFile = File(...)):
+        """
+            Upload and process a CSV dataset for analysis
+
+                    Args:
+                            file: CSV file to upload
+
+                                        Returns:
+                                                DatasetInfo with dataset ID, message and initial analysis
+                                                    """
     if not file.filename.endswith('.csv'):
         raise HTTPException(status_code=400, detail="Only CSV files are allowed")
     
